@@ -5,6 +5,8 @@ let categoriesArray = [];
 function showCategoriesList(array){
     let htmlContentToAppend = "";
 
+    document.getElementById("catname").innerHTML = array.catName;
+
     for(let i = 0; i < array.products.length; i++){ 
         let category = array.products[i];
         console.log(category);
@@ -42,7 +44,7 @@ EJECUCIÓN:
 */
 
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(LIST_AUTO_URL).then(function(resultObj){
+    getJSONData(PRODUCTS_URL + localStorage.catID + ".json").then(function(resultObj){
         if (resultObj.status === "ok")
         {
             categoriesArray = resultObj.data;
