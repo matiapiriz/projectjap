@@ -40,10 +40,29 @@
     </div>
   </nav>
   <main>
+    <div class="container" id="Info">
+    </div>
+    <div class="container" id="Coments">
+    </div>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      <h2 class="mb-4">Comentar:</h2>
+      <form>
+        <div class="form-group">
+          <label for="opinion">Tu Opinion</label>
+          <textarea class="form-control" id="opinion" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="calification">Tu Puntuación</label>
+          <select class="form-control" id="calification">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
     </div>
   </main>
   <footer class="text-muted">

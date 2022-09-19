@@ -51,23 +51,21 @@ function showProductsList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(products.cost) <= maxCount))){
 
             htmlContentToAppend += `
-            <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + products.image + `" alt="product image" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <div class="mb-1">
-                        <h4>`+ products.name + " - " + products.cost + products.currency + `</h4> 
-                        <p> `+ products.description +`</p> 
-                        </div>
-                        <small class="text-muted">` + products.soldCount + ` artículos</small> 
+            <div onclick="setProdID(${products.id})" class="list-group-item list-group-item-action cursor-active">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="${products.image}" alt="product image" class="img-thumbnail">
                     </div>
-
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">${products.name}</h4>
+                            <small class="text-muted">${products.soldCount} artículos</small>
+                        </div>
+                        <p class="mb-3">${products.cost + products.currency}</p>
+                        <p class="mb-1">${products.description}</p>
+                    </div>
                 </div>
             </div>
-        </div>
             `
         }
 
@@ -145,3 +143,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         showProductsList();
     });
 });
+
+function setProdID(id) {
+    localStorage.setItem("ProdID", id);
+    window.location = ("product-info.html")
+}
