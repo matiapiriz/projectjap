@@ -41,3 +41,12 @@ let getJSONData = function(url){
 }
 
 document.getElementById("usu").innerHTML = localStorage.nombre
+
+document.addEventListener ("DOMContentLoaded", function(){
+  document.getElementById('cerrarSesion').addEventListener('click',cerrarSesion)
+
+  function cerrarSesion(){
+    localStorage.removeItem("password")
+    localStorage.removeItem("nombre")
+  }
+})

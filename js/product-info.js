@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function(){
     getJSONData(PRODUCT_INFO_URL + localStorage.ProdID + ".json").then(function(resultObj){
         if (resultObj.status === "ok"){
             currentInfoArray = resultObj.data;
-            showInfo()
+            showInfo();
+            showRelated()
         }
     });
 
@@ -87,4 +88,27 @@ document.addEventListener("DOMContentLoaded", function(){
         }
         document.getElementById("Coments").innerHTML = htmlContentToAppend;
     }
+
+    function showRelated(){
+        let relatedProducts = currentInfoArray.relatedProducts
+        console.log(relatedProducts)
+        let htmlContentToAppend = ""
+
+        for (let i = 0; i < relatedProducts.length; i++) {
+            let object = relatedProducts[i];
+            htmlContentToAppend += `
+            <figure class="figure" onclick="redirect(${object.id})">
+            <img src="${object.image}" width="150" class="figure-img img-fluid rounded" alt="related product image.">
+            <figcaption class="figure-caption">${object.name}</figcaption>
+            </figure>
+            `
+        }
+        document.getElementById("Related").innerHTML = htmlContentToAppend;
+    }
+
 })
+
+function redirect(id){
+    localStorage.ProdID = id;
+    location.reload()
+}
