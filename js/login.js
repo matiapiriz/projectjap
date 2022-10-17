@@ -14,6 +14,7 @@ document.addEventListener ("DOMContentLoaded", function(){
     if (correo !== null && contraseña !== null){
         localStorage.nombre = correo;
         localStorage.password = contraseña;
+        localStorage.userID = 25801
         window.location.replace("index.html")
     }
 }

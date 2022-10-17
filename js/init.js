@@ -48,5 +48,6 @@ document.addEventListener ("DOMContentLoaded", function(){
   function cerrarSesion(){
     localStorage.removeItem("password")
     localStorage.removeItem("nombre")
+    localStorage.removeItem("userID")
   }
 })
