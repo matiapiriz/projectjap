@@ -1,15 +1,9 @@
-document.addEventListener("DOMContentLoaded", function(){
-    getJSONData(CART_INFO_URL + localStorage.userID + EXT_TYPE).then(function(resultObj){
-        if (resultObj.status === "ok"){
-            currentInfoArray = resultObj.data;
-            showInfo()
-        }
-    })
 
+let currentInfoArray = JSON.parse(localStorage.cart)
 
 function showInfo(){
     let htmlContentToAppend = "";
-    let products = currentInfoArray.articles
+    let products = currentInfoArray//.articles
 
     if (products.length == 0) {
         htmlContentToAppend = `<h3>Aun no has añadido productos a tu carrito</h3>`
@@ -38,7 +32,7 @@ function showInfo(){
                     <td><img src="${product.image}" alt="product image" class="img-thumbnail" width="120"></td>
                     <td>${product.name}</td>
                     <td>${product.currency}${product.unitCost}</td>
-                    <td><input type="number" value=${product.count} onclick="subtotal(${product.id},${product.unitCost}, this.value)"></td>
+                    <td><input class="col-3" type="number" value=${product.count} onclick="subtotal(${product.id},${product.unitCost}, this.value)"></td>
                     <td>${product.currency}<a id="${product.id}"></a></td>
                 </tr>
                 `
@@ -52,10 +46,16 @@ function showInfo(){
     }
 }
 
-})
+showInfo()
 
 function subtotal(id,costo,cantidad){
     document.getElementById(id).innerHTML = costo*parseInt(cantidad)
+    for (let i = 0; i < currentInfoArray.length; i++) {
+      if (currentInfoArray[i].id == id) {
+        currentInfoArray[i].count = cantidad
+        localStorage.cart = JSON.stringify(currentInfoArray)
+      }
+    }
 }
 
 function shippingForm(){

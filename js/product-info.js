@@ -15,7 +15,10 @@ document.addEventListener("DOMContentLoaded", function(){
         <div class="row">
         <div class="col-4">
             <br>
+            <div>
             <h2 class="mb-4">${product.name}</h2>
+            <button class="btn btn-primary col-4" onclick="addToCart()">Comprar</button>
+            </div>
             <strong class="mb-1">Precio:</strong>
             <p class="mb-3">${product.cost + product.currency}</p>
             <strong class="mb-1">Descripcion:</strong>
@@ -112,3 +115,26 @@ function redirect(id){
     localStorage.ProdID = id;
     location.reload()
 }
+
+function addToCart(){
+    var carrito = JSON.parse(localStorage.cart)
+
+    for (let i = 0; i < carrito.length; i++) {
+        const compare = carrito[i];
+        if (compare.id == currentInfoArray.id){
+            carrito[i].count ++
+            localStorage.cart = JSON.stringify(carrito)
+            return
+        }
+    }
+    let product = {
+    "id": currentInfoArray.id,
+    "name": currentInfoArray.name,
+    "count": 1,
+    "unitCost": currentInfoArray.cost,
+    "currency": currentInfoArray.currency,
+    "image": currentInfoArray.images[1]
+    }
+    carrito.push(product)
+    localStorage.cart = JSON.stringify(carrito)
+    }
