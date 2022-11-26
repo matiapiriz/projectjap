@@ -60,11 +60,56 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+
+    <div class="container py-5">
+      <h2>Perfil</h2>
+      <hr>
+      <div class="row">
+          <div class="col-md-10 mx-auto">
+              <form>
+                  <div class="form-group row py-2">
+                      <div class="col-sm-6">
+                          <label class="form-label" for="inputFirstname">Primer nombre</label>
+                          <input type="text" class="form-control" id="inputFirstname" placeholder="Primer nombre">
+                          <div class="invalid-feedback">
+                            Ingresa un nombre.
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <label class="form-label" for="inputLastname">Segundo nombre</label>
+                          <input type="text" class="form-control" id="inputLastname" placeholder="Segundo nombre">
+                      </div>
+                  </div>
+                  <div class="form-group row py-2">
+                      <div class="col-sm-6">
+                          <label class="form-label" for="inputFirstsurname">Primer apellido</label>
+                          <input type="text" class="form-control" id="inputFirstsurname" placeholder="Primer apellido">
+                          <div class="invalid-feedback">
+                            Ingresa un apellido.
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <label class="form-label" for="inputLastsurname">Segundo apellido</label>
+                          <input type="text" class="form-control" id="inputLastsurname" placeholder="Segundo apellido">
+                      </div>
+                  </div>
+                  <div class="form-group row py-2">
+                      <div class="col-sm-6">
+                          <label class="form-label" for="inputEmail">E-mail</label>
+                          <input type="email" class="form-control" id="inputEmail" placeholder="e-mail">
+                      </div>
+                      <div class="col-sm-6">
+                          <label class="form-label" for="inputContactNumber">Telefono de contacto</label>
+                          <input type="number" class="form-control" id="inputContactNumber" placeholder="Telefono">
+                      </div>
+                  </div>
+                  <hr>
+                  <button type="button" class="btn btn-primary px-4 float-right" id="saveBtn">Guardar cambios</button>
+              </form>
+          </div>
       </div>
-    </div>
+  </div>
+
   </main>
   <footer class="text-muted">
     <div class="container">

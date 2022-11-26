@@ -12,7 +12,7 @@ document.addEventListener ("DOMContentLoaded", function(){
     console.log(correo, contraseña)
 
     if (correo !== null && contraseña !== null){
-        localStorage.nombre = correo;
+        localStorage.email = correo;
         localStorage.password = contraseña;
         localStorage.cart = '[]';
         window.location.replace("index.html")

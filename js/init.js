@@ -40,14 +40,19 @@ let getJSONData = function(url){
     });
 }
 
-document.getElementById("usu").innerHTML = localStorage.nombre
+document.getElementById("usu").innerHTML = localStorage.email
 
 document.addEventListener ("DOMContentLoaded", function(){
   document.getElementById('cerrarSesion').addEventListener('click',cerrarSesion)
 
   function cerrarSesion(){
     localStorage.removeItem("password")
-    localStorage.removeItem("nombre")
+    localStorage.removeItem("email")
     localStorage.removeItem("cart")
+    localStorage.removeItem("name")
+    localStorage.removeItem("lastname")
+    localStorage.removeItem("surname")
+    localStorage.removeItem("lastsurname")
+    localStorage.removeItem("number")
   }
 })
